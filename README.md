@@ -63,7 +63,7 @@ button{
   pointer-events:none;transition:opacity 6s linear;
 }
 
-/* Final message */
+/* Final message hidden initially */
 #finalMsg{
   position:fixed;
   bottom:40%;
@@ -74,10 +74,8 @@ button{
   color:white;
   padding:0 20px;
   box-sizing:border-box;
-  animation:fadeInMsg 4s ease forwards;
-  animation-delay:6s;
+  transition:opacity 3s ease;
 }
-@keyframes fadeInMsg{to{opacity:1}}
 </style>
 </head>
 <body>
@@ -85,7 +83,7 @@ button{
 <div id="fadeOverlay"></div>
 <div id="finalMsg">Dekho itna pyaari ho ki I Love You bhi sambhal nahi paya… aapko dekh ke vo bhi pighal ke gir gaya 🫠</div>
 
-<!-- 1 -->
+<!-- SCREENS SAME AS BEFORE -->
 <div class="screen active" id="s1">
   <div class="cat">😺</div>
   <h1>Hey cutiepie 🥰</h1>
@@ -93,7 +91,6 @@ button{
   <button onclick="startExperience()">Let's check 💖</button>
 </div>
 
-<!-- 2 Meter -->
 <div class="screen" id="s2">
   <h2>Measuring your cuteness... ⏳</h2>
   <h1 id="percent">0%</h1>
@@ -102,7 +99,6 @@ button{
   <button id="next2" style="display:none;" onclick="next(3)">Continue ➜</button>
 </div>
 
-<!-- 3 Reveal -->
 <div class="screen" id="s3">
   <h2>Tap each one 💌</h2>
   <div class="reveal-box" onclick="reveal(this,1)">Tap to reveal</div>
@@ -111,21 +107,18 @@ button{
   <button onclick="next(4)">See more ➜</button>
 </div>
 
-<!-- 4 Note -->
 <div class="screen" id="s4">
   <h2>A little note 💗</h2>
   <p>I’m truly sorry if I ever made you sad. You deserve only love and happiness 🌹</p>
   <button onclick="next(5); startTyping();">Open my heart ➜</button>
 </div>
 
-<!-- 5 Typing -->
 <div class="screen" id="s5">
   <div class="cat">😿</div>
   <p id="typingText"></p>
   <button onclick="next(6)">Last thing… ❤️</button>
 </div>
 
-<!-- 6 Final -->
 <div class="screen" id="s6">
   <h1 class="love-text" id="loveText">I Love You ❤️</h1>
   <button onclick="shatterLove()">Touch My Heart 💔</button>
@@ -211,6 +204,11 @@ function shatterLove(){
   });
 
   document.getElementById("fadeOverlay").style.opacity=1;
+
+  // SHOW FINAL MESSAGE AFTER BREAK
+  setTimeout(()=>{
+    document.getElementById("finalMsg").style.opacity=1;
+  },4000);
 }
 </script>
 
