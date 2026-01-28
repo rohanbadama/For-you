@@ -62,13 +62,26 @@ button{
   position:fixed;inset:0;background:black;opacity:0;
   pointer-events:none;transition:opacity 6s linear;
 }
+
+/* Final typing message */
+#finalTyping{
+  position:fixed;
+  bottom:35%;
+  width:90%;
+  left:5%;
+  font-size:20px;
+  line-height:1.6;
+  text-align:center;
+  border-right:2px solid white;
+  white-space:pre-wrap;
+}
 </style>
 </head>
 <body>
 
 <div id="fadeOverlay"></div>
 
-<!-- SCREENS -->
+<!-- Screens -->
 <div class="screen active" id="s1">
   <div class="cat">😺</div>
   <h1>Hey cutiepie 🥰</h1>
@@ -190,18 +203,23 @@ function shatterLove(){
 
   document.getElementById("fadeOverlay").style.opacity=1;
 
-  // CREATE FINAL MESSAGE ONLY AT END
-  setTimeout(()=>{
-    const msg=document.createElement("div");
-    msg.innerText="Dekho itni pyaari ho ki I Love You bhi sambhal nahi paya… aapko dekh ke vo bhi pighal ke gir gaya 🫠";
-    msg.style.position="fixed";
-    msg.style.bottom="40%";
-    msg.style.width="100%";
-    msg.style.textAlign="center";
-    msg.style.fontSize="20px";
-    msg.style.color="white";
-    document.body.appendChild(msg);
-  },6000);
+  // CREATE & TYPE FINAL MESSAGE NOW
+  const finalDiv=document.createElement("div");
+  finalDiv.id="finalTyping";
+  document.body.appendChild(finalDiv);
+
+  const finalMsg="Dekho itna pyaari ho ki I Love You bhi sambhal nahi paya… aapko dekh ke vo bhi pighal ke gir gaya 🫠";
+  let i=0;
+  function typeFinal(){
+    if(i<finalMsg.length){
+      finalDiv.innerHTML+=finalMsg.charAt(i);
+      i++;
+      setTimeout(typeFinal,40);
+    } else {
+      finalDiv.style.borderRight="none";
+    }
+  }
+  typeFinal();
 }
 </script>
 
