@@ -62,28 +62,13 @@ button{
   position:fixed;inset:0;background:black;opacity:0;
   pointer-events:none;transition:opacity 6s linear;
 }
-
-/* Final message hidden initially */
-#finalMsg{
-  position:fixed;
-  bottom:40%;
-  width:100%;
-  text-align:center;
-  font-size:20px;
-  opacity:0;
-  color:white;
-  padding:0 20px;
-  box-sizing:border-box;
-  transition:opacity 3s ease;
-}
 </style>
 </head>
 <body>
 
 <div id="fadeOverlay"></div>
-<div id="finalMsg">Dekho itna pyaari ho ki I Love You bhi sambhal nahi paya… aapko dekh ke vo bhi pighal ke gir gaya 🫠</div>
 
-<!-- SCREENS SAME AS BEFORE -->
+<!-- SCREENS -->
 <div class="screen active" id="s1">
   <div class="cat">😺</div>
   <h1>Hey cutiepie 🥰</h1>
@@ -205,10 +190,18 @@ function shatterLove(){
 
   document.getElementById("fadeOverlay").style.opacity=1;
 
-  // SHOW FINAL MESSAGE AFTER BREAK
+  // CREATE FINAL MESSAGE ONLY AT END
   setTimeout(()=>{
-    document.getElementById("finalMsg").style.opacity=1;
-  },4000);
+    const msg=document.createElement("div");
+    msg.innerText="Dekho itni pyaari ho ki I Love You bhi sambhal nahi paya… aapko dekh ke vo bhi pighal ke gir gaya 🫠";
+    msg.style.position="fixed";
+    msg.style.bottom="40%";
+    msg.style.width="100%";
+    msg.style.textAlign="center";
+    msg.style.fontSize="20px";
+    msg.style.color="white";
+    document.body.appendChild(msg);
+  },6000);
 }
 </script>
 
