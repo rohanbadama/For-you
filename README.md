@@ -5,22 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Someone Special 💖</title>
 
+<!-- Cute Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@500;700&family=Poppins:wght@300;400&family=Handlee&display=swap" rel="stylesheet">
+
 <style>
 body{
   margin:0;
-  font-family:'Segoe UI',sans-serif;
   background:radial-gradient(circle at top,#4b0d4f,#1f0524);
   color:white;
   text-align:center;
   overflow:hidden;
-  transition:background 5s linear;
+  font-family:'Poppins',sans-serif;
 }
 
 .screen{display:none;height:100vh;padding:30px;box-sizing:border-box;}
 .active{display:block;animation:fade 1s;}
 @keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1}}
 
+h1,h2{
+  font-family:'Pacifico',cursive;
+  letter-spacing:1px;
+}
+
+h2{
+  font-family:'Baloo 2',cursive;
+}
+
+p{
+  font-family:'Poppins',sans-serif;
+  font-size:17px;
+}
+
 button{
+  font-family:'Baloo 2',cursive;
   background:linear-gradient(45deg,#ff4d88,#ff85a2);
   border:none;padding:12px 28px;border-radius:30px;
   color:white;font-size:18px;margin-top:20px;cursor:pointer;
@@ -35,23 +52,34 @@ button{
 .shake{animation:shake 0.4s linear 4;}
 @keyframes shake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-8px)}}
 
-.reveal-box{background:#ffffff15;padding:15px;margin:12px;border-radius:15px;cursor:pointer;transition:0.3s;}
+.reveal-box{
+  font-family:'Handlee',cursive;
+  background:#ffffff15;padding:15px;margin:12px;border-radius:15px;
+  cursor:pointer;transition:0.3s;font-size:18px;
+}
 .revealed{background:#ff4d88;transform:scale(1.05)}
 
 #typingText{
+  font-family:'Handlee',cursive;
   max-width:90%;
   margin:auto;
-  font-size:18px;
-  line-height:1.6;
+  font-size:20px;
+  line-height:1.7;
   min-height:140px;
   border-right:2px solid white;
 }
 
-.love-text{font-size:52px;color:#ff9acb;text-shadow:0 0 20px #ff4da6}
+.love-text{
+  font-family:'Pacifico',cursive;
+  font-size:58px;
+  color:#ff9acb;
+  text-shadow:0 0 20px #ff4da6;
+}
 
 .text-shard{
   position:fixed;
   font-weight:bold;
+  font-family:'Pacifico',cursive;
   animation:fall 6s linear forwards;
 }
 @keyframes fall{
@@ -63,14 +91,14 @@ button{
   pointer-events:none;transition:opacity 6s linear;
 }
 
-/* Final typing message */
 #finalTyping{
+  font-family:'Handlee',cursive;
   position:fixed;
   bottom:35%;
   width:90%;
   left:5%;
-  font-size:20px;
-  line-height:1.6;
+  font-size:22px;
+  line-height:1.7;
   text-align:center;
   border-right:2px solid white;
   white-space:pre-wrap;
@@ -81,7 +109,6 @@ button{
 
 <div id="fadeOverlay"></div>
 
-<!-- Screens -->
 <div class="screen active" id="s1">
   <div class="cat">😺</div>
   <h1>Hey cutiepie 🥰</h1>
@@ -203,7 +230,6 @@ function shatterLove(){
 
   document.getElementById("fadeOverlay").style.opacity=1;
 
-  // CREATE & TYPE FINAL MESSAGE NOW
   const finalDiv=document.createElement("div");
   finalDiv.id="finalTyping";
   document.body.appendChild(finalDiv);
